@@ -1,13 +1,15 @@
+@php
+    $labels = \App\Label::all();
+@endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tour Template</title>
+    <title>{{ $labels->firstWhere('code','=','site_title')->label }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="{{ $labels->firstWhere('code','=','site_description')->label }}" />
+    <meta name="keywords" content="{{ $labels->firstWhere('code','=','site_keywords')->label }}" />
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -53,6 +55,23 @@
     <!--[if lt IE 9]>
     <script src="/js/respond.min.js"></script>
     <![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
 <body>
@@ -65,7 +84,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-2">
-                        <div id="colorlib-logo"><a href="/">BlaBlaLogo</a></div>
+                        <div id="colorlib-logo">
+                            <a href="/" title="Bla Bla Tour">
+                                <img src="/images/logo.png" alt="" style="width: 100px">
+                            </a>
+                        </div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul>
@@ -111,14 +134,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>Получай новости первым</h2>
-                <p>Подпишись на рассылку новостей и получай выгодные предложения со скидкой</p>
+                <h2>{{ $labels->firstWhere('code','=','subscribe_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','subscribe_description')->label }}</p>
                 <form class="form-inline qbstp-header-subscribe">
                     <div class="row">
                         <div class="col-md-12 col-md-offset-0">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email" placeholder="Укажите E-mail">
-                                <button type="submit" class="btn btn-primary">Подписаться</button>
+                                <input type="text" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
+                                <button type="submit" class="btn btn-primary">{{ $labels->firstWhere('code','=','subscribe_button')->label }}</button>
                             </div>
                         </div>
                     </div>
@@ -132,14 +155,14 @@
     <div class="container">
         <div class="row row-pb-md">
             <div class="col-md-3 colorlib-widget">
-                <h4>Bla Bla Tour</h4>
-                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+                <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
+                <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                 <p>
                 <ul class="colorlib-social-icons">
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                    <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    <li><a href="{{ $labels->firstWhere('code','=','url_twitter')->label }}" target="_blank"><i class="icon-twitter"></i></a></li>
+                    <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                    {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
+                    {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
                 </ul>
                 </p>
             </div>
@@ -167,10 +190,10 @@
             <div class="col-md-3 col-md-push-1">
                 <h4>Контакты</h4>
                 <ul class="colorlib-footer-links">
-                    <li>Дом Улица, <br> Город</li>
-                    <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                    <li><a href="mailto:info@blablatour.com">info@blablatour.com</a></li>
-                    <li><a href="#">blablatour.com</a></li>
+                    <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
+                    <li><a href="tel://{{ $labels->firstWhere('code','=','contact_phone')->label }}">{{ $labels->firstWhere('code','=','contact_phone_display')->label }}</a></li>
+                    <li><a href="mailto:{{ $labels->firstWhere('code','=','contact_email')->label }}">{{ $labels->firstWhere('code','=','contact_email')->label }}</a></li>
+                    <li><a href="/">{{ $labels->firstWhere('code','=','site_title')->label }}</a></li>
                 </ul>
             </div>
         </div>

@@ -1,43 +1,47 @@
 @extends('layouts.master')
 
+@php
+    $labels = \App\Label::all();
+@endphp
+
 @section('page')
 <div id="colorlib-services">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-3 animate-box text-center aside-stretch">
                 <div class="services">
-							<span class="icon">
-								<i class="flaticon-around"></i>
-							</span>
-                    <h3>Amazing Travel</h3>
-                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+                    <span class="icon">
+                        <i class="flaticon-around"></i>
+                    </span>
+                    <h3>{{ $labels->firstWhere('code','=','achive_1_title')->label }}</h3>
+                    <p>{{ $labels->firstWhere('code','=','achive_1_description')->label }}</p>
                 </div>
             </div>
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
-							<span class="icon">
-								<i class="flaticon-boat"></i>
-							</span>
-                    <h3>Our Cruises</h3>
-                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+                    <span class="icon">
+                        <i class="flaticon-boat"></i>
+                    </span>
+                    <h3>{{ $labels->firstWhere('code','=','achive_2_title')->label }}</h3>
+                    <p>{{ $labels->firstWhere('code','=','achive_2_description')->label }}</p>
                 </div>
             </div>
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
-							<span class="icon">
-								<i class="flaticon-car"></i>
-							</span>
-                    <h3>Book Your Trip</h3>
-                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+                    <span class="icon">
+                        <i class="flaticon-car"></i>
+                    </span>
+                    <h3>{{ $labels->firstWhere('code','=','achive_3_title')->label }}</h3>
+                    <p>{{ $labels->firstWhere('code','=','achive_3_description')->label }}</p>
                 </div>
             </div>
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
-							<span class="icon">
-								<i class="flaticon-postcard"></i>
-							</span>
-                    <h3>Nice Support</h3>
-                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies</p>
+                    <span class="icon">
+                        <i class="flaticon-postcard"></i>
+                    </span>
+                    <h3>{{ $labels->firstWhere('code','=','achive_4_title')->label }}</h3>
+                    <p>{{ $labels->firstWhere('code','=','achive_4_description')->label }}</p>
                 </div>
             </div>
         </div>
@@ -48,8 +52,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>Популярные туры</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet earum eligendi minus nihil officia quidem?</p>
+                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
             </div>
         </div>
     </div>
@@ -64,7 +68,6 @@
                             <i class="icon-star-full"></i>
                         @endfor
                     </span>
-                    545 Отзывов
                 </p>
                 <h2>{{ $tour->title }}</h2>
                 <span class="city">{{ $tour->place }}</span>
@@ -80,8 +83,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>Последние публикации блога</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dicta earum esse velit voluptate voluptatem!</p>
+                <h2>{{ $labels->firstWhere('code','=','blog_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','blog_description')->label }}</p>
             </div>
         </div>
         <div class="blog-flex">
@@ -91,7 +94,7 @@
                 <div class="row">
                     @foreach(\App\Post::orderBy('created_at', 'desc')->with(['category'])->take(3)->get() as $post)
                     <div class="col-md-12 animate-box">
-                        <a href="blog.html" class="blog-post">
+                        <a href="{{ $post->slug }}" class="blog-post">
                             <span class="img" style="background-image: url({{ $post->image }});"></span>
                             <div class="desc">
                                 <span class="date">{{ $post->created_at }}</span>
@@ -148,65 +151,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>Recommended Hotels</h2>
-                <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <h2>{{ $labels->firstWhere('code','=','excursion_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','excursion_description')->label }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 animate-box">
                 <div class="owl-carousel">
+                    @foreach(\App\Excursion::all() as $excursion)
                     <div class="item">
                         <div class="hotel-entry">
-                            <a href="hotels.html" class="hotel-img" style="background-image: url(images/hotel-1.jpg);">
-                                <p class="price"><span>$120</span><small> /night</small></p>
+                            <a href="{{ $excursion->slug }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
+                                <p class="price"><span>{{ $excursion->price }}</span></p>
                             </a>
                             <div class="desc">
-                                <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>
-                                <h3><a href="#">Hotel Edison</a></h3>
-                                <span class="place">New York, USA</span>
-                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                                <p class="star">
+                                    <span>
+                                        @for($i=0;$i<$excursion->rating;$i++)
+                                            <i class="icon-star-full"></i>
+                                        @endfor
+                                    </span>
+                                </p>
+                                <h3><a href="{{ $excursion->slug }}">{{ $excursion->title }}</a></h3>
+                                <span class="place">{{ $excursion->place }}</span>
+                                <p>{{ $excursion->excerpt }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="hotel-entry">
-                            <a href="hotels.html" class="hotel-img" style="background-image: url(images/hotel-2.jpg);">
-                                <p class="price"><span>$120</span><small> /night</small></p>
-                            </a>
-                            <div class="desc">
-                                <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>
-                                <h3><a href="#">Hotel Edison</a></h3>
-                                <span class="place">New York, USA</span>
-                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="hotel-entry">
-                            <a href="hotels.html" class="hotel-img" style="background-image: url(images/hotel-3.jpg);">
-                                <p class="price"><span>$120</span><small> /night</small></p>
-                            </a>
-                            <div class="desc">
-                                <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>
-                                <h3><a href="#">Hotel Edison</a></h3>
-                                <span class="place">New York, USA</span>
-                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="hotel-entry">
-                            <a href="hotels.html" class="hotel-img" style="background-image: url(images/hotel-4.jpg);">
-                                <p class="price"><span>$120</span><small> /night</small></p>
-                            </a>
-                            <div class="desc">
-                                <p class="star"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p>
-                                <h3><a href="#">Hotel Edison</a></h3>
-                                <span class="place">New York, USA</span>
-                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -217,8 +189,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>Наши довольные гости</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid asperiores cumque, dicta incidunt laborum nam nulla quod velit voluptate?</p>
+                <h2>{{ $labels->firstWhere('code','=','feedback_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','feedback_description')->label }}</p>
             </div>
         </div>
         <div class="row">
