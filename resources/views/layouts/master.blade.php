@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul>
-                            @foreach(\Vshapovalov\Crud\Models\MenuItem::all() as $menu)
+                            @foreach(\Vshapovalov\Crud\Models\MenuItem::orderBy('order')->get() as $menu)
                             <li class="is-active"><a href="{{ $menu->url }}">{{ $menu->title }}</a></li>
                             @endforeach
                         </ul>
@@ -122,90 +122,90 @@
             </ul>
         </div>
     </aside>
+
     <div id="colorlib-reservation">
         <!-- <div class="container"> -->
     </div>
-</div>
 
-@yield('page')
+    @yield('page')
 
-<div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','subscribe_title')->label }}</h2>
-                <p>{{ $labels->firstWhere('code','=','subscribe_description')->label }}</p>
-                <form class="form-inline qbstp-header-subscribe">
-                    <div class="row">
-                        <div class="col-md-12 col-md-offset-0">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
-                                <button type="submit" class="btn btn-primary">{{ $labels->firstWhere('code','=','subscribe_button')->label }}</button>
+    <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+                    <h2>{{ $labels->firstWhere('code','=','subscribe_title')->label }}</h2>
+                    <p>{{ $labels->firstWhere('code','=','subscribe_description')->label }}</p>
+                    <form class="form-inline qbstp-header-subscribe">
+                        <div class="row">
+                            <div class="col-md-12 col-md-offset-0">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
+                                    <button type="submit" class="btn btn-primary">{{ $labels->firstWhere('code','=','subscribe_button')->label }}</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer id="colorlib-footer" role="contentinfo">
-    <div class="container">
-        <div class="row row-pb-md">
-            <div class="col-md-3 colorlib-widget">
-                <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
-                <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
-                <p>
-                <ul class="colorlib-social-icons">
-                    <li><a href="{{ $labels->firstWhere('code','=','url_twitter')->label }}" target="_blank"><i class="icon-twitter"></i></a></li>
-                    <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
-                    {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
-                    {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
-                </ul>
-                </p>
-            </div>
-            <div class="col-md-2 colorlib-widget">
-            </div>
-            <div class="col-md-2 colorlib-widget">
-                <h4>Туры</h4>
-                <p>
-                <ul class="colorlib-footer-links">
-                    @foreach(\App\Tour::take(4)->get() as $tour)
-                    <li><a href="#">{{ $tour->title }}</a></li>
-                    @endforeach
-                </ul>
-                </p>
-            </div>
-            <div class="col-md-2">
-                <h4>Блог</h4>
-                <ul class="colorlib-footer-links">
-                    @foreach(\App\Post::take(3)->get() as $post)
-                    <li><a href="#">{{ $post->title }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
+    <footer id="colorlib-footer" role="contentinfo">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col-md-3 colorlib-widget">
+                    <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
+                    <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
+                    <p>
+                    <ul class="colorlib-social-icons">
+                        <li><a href="{{ $labels->firstWhere('code','=','url_twitter')->label }}" target="_blank"><i class="icon-twitter"></i></a></li>
+                        <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                        {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
+                        {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-2 colorlib-widget">
+                </div>
+                <div class="col-md-2 colorlib-widget">
+                    <h4>Туры</h4>
+                    <p>
+                    <ul class="colorlib-footer-links">
+                        @foreach(\App\Tour::take(4)->get() as $tour)
+                        <li><a href="{{ page_route('tour', ['slug' => $tour->slug])}}">{{ $tour->title }}</a></li>
+                        @endforeach
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Блог</h4>
+                    <ul class="colorlib-footer-links">
+                        @foreach(\App\Post::take(3)->get() as $post)
+                        <li><a href="{{ page_route('post', ['slug' => $post->slug])}}">{{ $post->title }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
 
-            <div class="col-md-3 col-md-push-1">
-                <h4>Контакты</h4>
-                <ul class="colorlib-footer-links">
-                    <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
-                    <li><a href="tel://{{ $labels->firstWhere('code','=','contact_phone')->label }}">{{ $labels->firstWhere('code','=','contact_phone_display')->label }}</a></li>
-                    <li><a href="mailto:{{ $labels->firstWhere('code','=','contact_email')->label }}">{{ $labels->firstWhere('code','=','contact_email')->label }}</a></li>
-                    <li><a href="/">{{ $labels->firstWhere('code','=','site_title')->label }}</a></li>
-                </ul>
+                <div class="col-md-3 col-md-push-1">
+                    <h4>Контакты</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
+                        <li><a href="tel://{{ $labels->firstWhere('code','=','contact_phone')->label }}">{{ $labels->firstWhere('code','=','contact_phone_display')->label }}</a></li>
+                        <li><a href="mailto:{{ $labels->firstWhere('code','=','contact_email')->label }}">{{ $labels->firstWhere('code','=','contact_email')->label }}</a></li>
+                        <li><a href="/">{{ $labels->firstWhere('code','=','site_title')->label }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | With <i class="icon-heart2" aria-hidden="true"></i> Bla Bla Tour
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | With <i class="icon-heart2" aria-hidden="true"></i> Bla Bla Tour
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 </div>
 
 <div class="gototop js-top">
@@ -231,6 +231,7 @@
 <script src="/js/bootstrap-datepicker.js"></script>
 <!-- Stellar Parallax -->
 <script src="/js/jquery.stellar.min.js"></script>
+@yield('page_scripts')
 <!-- Main -->
 <script src="/js/main.js"></script>
 
