@@ -5,6 +5,12 @@
 @endphp
 
 @section('page')
+<div id="colorlib-reservation" style="padding: 20px 0;     background: #2C2E3E">
+    <div class="container text-center" style="display: flex; justify-content: center">
+        <script charset="utf-8" src="//www.travelpayouts.com/widgets/13bd659d78d7212628ee963db15130f6.js?v=1506" async></script>
+    </div>
+</div>
+
 <div id="colorlib-services">
     <div class="container">
         <div class="row no-gutters">
@@ -48,36 +54,43 @@
     </div>
 </div>
 
-<div class="colorlib-tour colorlib-light-grey">
+<div id="colorlib-hotel">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
-                <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
+                <h2>{{ $labels->firstWhere('code','=','excursion_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','excursion_description')->label }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box">
+                <div class="owl-carousel">
+                    @foreach(\App\Excursion::all() as $excursion)
+                        <div class="item">
+                            <div class="hotel-entry">
+                                <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
+                                    <p class="price"><span>{{ $excursion->price }}</span></p>
+                                </a>
+                                <div class="desc">
+                                    <p class="star">
+                                    <span>
+                                        @for($i=0;$i<$excursion->rating;$i++)
+                                            <i class="icon-star-full"></i>
+                                        @endfor
+                                    </span>
+                                    </p>
+                                    <h3><a href="{{ page_route('excursion', ['slug' => $excursion->slug])  }}">{{ $excursion->title }}</a></h3>
+                                    <span class="place">{{ $excursion->place }}</span>
+                                    <p>{{ $excursion->excerpt }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
-    <div class="tour-wrap">
-        @foreach(\App\Tour::where('is_popular', '<>', 0)->take(8)->get() as $tour )
-        <a href="#" class="tour-entry animate-box">
-            <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
-            <span class="desc">
-                <p class="star">
-                    <span>
-                        @for($i=0;$i<$tour->rating;$i++)
-                            <i class="icon-star-full"></i>
-                        @endfor
-                    </span>
-                </p>
-                <h2>{{ $tour->title }}</h2>
-                <span class="city">{{ $tour->place }}</span>
-                <span class="price">{{ $tour->price }}</span>
-            </span>
-        </a>
-        @endforeach
-    </div>
 </div>
-
 
 <div id="colorlib-blog">
     <div class="container">
@@ -110,80 +123,73 @@
     </div>
 </div>
 
-<div id="colorlib-intro" class="intro-img" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 animate-box">
-                <div class="intro-desc">
-                    <div class="text-salebox">
-                        <div class="text-lefts">
-                            <div class="sale-box">
-                                <div class="sale-box-top">
-                                    <h2 class="number">45</h2>
-                                    <span class="sup-1">%</span>
-                                    <span class="sup-2">Off</span>
-                                </div>
-                                <h2 class="text-sale">Sale</h2>
-                            </div>
-                        </div>
-                        <div class="text-rights">
-                            <h3 class="title">Just hurry up limited offer!</h3>
-                            <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                            <p><a href="#" class="btn btn-primary">Book Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 animate-box">
-                <div class="video-wrap">
-                    <div class="video colorlib-video" style="background-image: url(images/img_bg_2.jpg);">
-                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video"></i></a>
-                        <div class="video-overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div id="colorlib-intro" class="intro-img" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">--}}
+    {{--<div class="overlay"></div>--}}
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-md-6 animate-box">--}}
+                {{--<div class="intro-desc">--}}
+                    {{--<div class="text-salebox">--}}
+                        {{--<div class="text-lefts">--}}
+                            {{--<div class="sale-box">--}}
+                                {{--<div class="sale-box-top">--}}
+                                    {{--<h2 class="number">45</h2>--}}
+                                    {{--<span class="sup-1">%</span>--}}
+                                    {{--<span class="sup-2">Off</span>--}}
+                                {{--</div>--}}
+                                {{--<h2 class="text-sale">Sale</h2>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="text-rights">--}}
+                            {{--<h3 class="title">Just hurry up limited offer!</h3>--}}
+                            {{--<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>--}}
+                            {{--<p><a href="#" class="btn btn-primary">Book Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-6 animate-box">--}}
+                {{--<div class="video-wrap">--}}
+                    {{--<div class="video colorlib-video" style="background-image: url(images/img_bg_2.jpg);">--}}
+                        {{--<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video"></i></a>--}}
+                        {{--<div class="video-overlay"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
-<div id="colorlib-hotel">
+<div class="colorlib-tour colorlib-light-grey">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','excursion_title')->label }}</h2>
-                <p>{{ $labels->firstWhere('code','=','excursion_description')->label }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 animate-box">
-                <div class="owl-carousel">
-                    @foreach(\App\Excursion::all() as $excursion)
-                    <div class="item">
-                        <div class="hotel-entry">
-                            <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
-                                <p class="price"><span>{{ $excursion->price }}</span></p>
-                            </a>
-                            <div class="desc">
-                                <p class="star">
-                                    <span>
-                                        @for($i=0;$i<$excursion->rating;$i++)
-                                            <i class="icon-star-full"></i>
-                                        @endfor
-                                    </span>
-                                </p>
-                                <h3><a href="{{ page_route('excursion', ['slug' => $excursion->slug])  }}">{{ $excursion->title }}</a></h3>
-                                <span class="place">{{ $excursion->place }}</span>
-                                <p>{{ $excursion->excerpt }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
             </div>
         </div>
     </div>
+    <div class="tour-wrap">
+        @foreach(\App\Tour::where('is_popular', '<>', 0)->take(8)->get() as $tour )
+            <a href="#" class="tour-entry animate-box">
+                <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
+                <span class="desc">
+                <p class="star">
+                    <span>
+                        @for($i=0;$i<$tour->rating;$i++)
+                            <i class="icon-star-full"></i>
+                        @endfor
+                    </span>
+                </p>
+                <h2>{{ $tour->title }}</h2>
+                <span class="city">{{ $tour->place }}</span>
+                <span class="price">{{ $tour->price }}</span>
+            </span>
+            </a>
+        @endforeach
+    </div>
 </div>
+
 
 <div id="colorlib-testimony" class="colorlib-light-grey">
     <div class="container">

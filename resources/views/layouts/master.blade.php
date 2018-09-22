@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $labels->firstWhere('code','=','site_description')->label }}" />
     <meta name="keywords" content="{{ $labels->firstWhere('code','=','site_keywords')->label }}" />
+    <meta name="B-verify" content="0c34dd0302136b214c7124544c6193e090686f4e" />
 
     @yield('socialtags')
 
@@ -116,10 +117,6 @@
             </ul>
         </div>
     </aside>
-
-    <div id="colorlib-reservation">
-        <!-- <div class="container"> -->
-    </div>
 
     @yield('page')
 
