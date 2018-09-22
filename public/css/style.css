@@ -544,10 +544,10 @@ h1, h2, h3, h4, h5, h6, figure {
       vertical-align: middle;
       height: 120px;
       font-size: 60px;
-      color: #00BBF0; }
+      color: #e6186e; }
 
 .aside-stretch {
-  background: #00BBF0; }
+  background: #e6186e; }
   .aside-stretch:after {
     position: absolute;
     top: 0;
@@ -555,7 +555,7 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
     content: '';
     width: 360%;
-    background: #00BBF0; }
+    background: #e6186e; }
   @media screen and (max-width: 768px) {
     .aside-stretch {
       background: transparent; }
@@ -639,7 +639,7 @@ h1, h2, h3, h4, h5, h6, figure {
             color: #e6e6e6; }
           .tour-wrap .tour-entry .desc .price {
             color: #fff;
-            background: #00BBF0;
+            background: #e6186e;
             padding: 4px 7px; } }
     .tour-wrap .tour-entry:hover .tour-img {
       top: -55%; }
@@ -704,7 +704,7 @@ h1, h2, h3, h4, h5, h6, figure {
       position: absolute;
       bottom: 0;
       left: 0;
-      background: #00BBF0;
+      background: #e6186e;
       color: #fff;
       padding: 8px 12px;
       margin: 0; }
@@ -973,7 +973,7 @@ h1, h2, h3, h4, h5, h6, figure {
     box-shadow: none;
     border: none; }
   #colorlib-hotel .owl-theme .owl-controls .owl-nav [class*=owl-]:hover {
-    background: #00BBF0; }
+    background: #e6186e; }
 
 .hotel-entry {
   margin-bottom: 3em; }
@@ -986,7 +986,7 @@ h1, h2, h3, h4, h5, h6, figure {
       position: absolute;
       bottom: 0;
       left: 0;
-      background: #00BBF0;
+      background: #e6186e;
       color: #fff;
       padding: 8px 12px;
       margin: 0; }
@@ -1037,7 +1037,7 @@ h1, h2, h3, h4, h5, h6, figure {
     text-transform: uppercase; }
   .room-wrap .price span {
     font-size: 20px;
-    color: #00BBF0; }
+    color: #e6186e; }
   .room-wrap .price small {
     font-size: 14px; }
   .room-wrap .desc {
@@ -1300,7 +1300,7 @@ article {
       bottom: 0;
       content: '';
       width: 360%;
-      background: #00BBF0; }
+      background: #e6186e; }
   .about-flex .about {
     text-align: right; }
     @media screen and (max-width: 768px) {
