@@ -1746,18 +1746,18 @@ input[type="text"] {
     outline: none !important; }
 
 .btn-primary {
-  background: #FFDD00;
+  background: #e6186e;
   color: #fff;
-  border: 1px solid #FFDD00; }
+  border: 1px solid #e6186e; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background: #ffe01a !important;
-    border-color: #ffe01a !important; }
+    background: #e6186e !important;
+    border-color: #e6186e !important; }
   .btn-primary.btn-outline {
     background: transparent;
-    color: #FFDD00;
-    border: 1px solid #FFDD00; }
+    color: #e6186e;
+    border: 1px solid #e6186e; }
     .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-      background: #FFDD00;
+      background: #e6186e;
       color: #fff; }
 
 .btn-success {
