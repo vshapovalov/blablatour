@@ -9,7 +9,7 @@
 
     if ($formName == 'get_tour') {
         $target = request('target');
-        \App\Order::create([
+        $order = \App\Order::create([
         	'name' => $firstName . ' ' . $lastName,
             'phone' => $phone,
             'email' => $email,
@@ -18,12 +18,14 @@
 
         session()->flash('success_message', 'Заявка успешно отправлена!');
         session()->save();
+
+        \Illuminate\Support\Facades\Mail::to( crud_settings('admin.mail') )->send( new \App\Mail\SendOrder( $order ));
     }
 
     if ($formName == 'get_excursion') {
         $targetDate = request('target_date');
         $target = request('target');
-        \App\Order::create([
+        $order = \App\Order::create([
         	'name' => $firstName . ' ' . $lastName,
             'phone' => $phone,
             'email' => $email,
@@ -33,23 +35,27 @@
 
         session()->flash('success_message', 'Заявка успешно отправлена!');
         session()->save();
+
+        \Illuminate\Support\Facades\Mail::to( crud_settings('admin.mail') )->send( new \App\Mail\SendOrder( $order ));
     }
 
     if ($formName == 'subscribe') {
 
-        \App\Subscriber::create([
+        $subscribe = \App\Subscriber::create([
             'email' => $email
         ]);
 
         session()->flash('success_message', 'Подписка успешно оформлена!');
         session()->save();
+
+        \Illuminate\Support\Facades\Mail::to( crud_settings('admin.mail') )->send( new \App\Mail\Subsribing( $subscribe ));
     }
 
     if ($formName == 'send_message') {
         $subject = request('subject');
         $message = request('message');
 
-        \App\Message::create([
+        $messageObject = \App\Message::create([
             'name' => $firstName . ' ' . $lastName,
             'phone' => $phone,
             'email' => $email,
@@ -58,8 +64,9 @@
         ]);
 
         session()->flash('success_message', 'Сообщение отправлено');
-        session()->flash('redirect_success_url', session()->previousUrl());
         session()->save();
+
+        \Illuminate\Support\Facades\Mail::to( crud_settings('admin.mail') )->send( new \App\Mail\SendMessage( $messageObject ));
     }
 
     redirect_now( page_route('success_message'))

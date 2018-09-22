@@ -11,14 +11,16 @@ class Subsribing extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subscribe;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( $subscribe )
     {
-        //
+        $this->subscribe = $subscribe;
     }
 
     /**
@@ -28,6 +30,6 @@ class Subsribing extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('mail.subscribe');
     }
 }
