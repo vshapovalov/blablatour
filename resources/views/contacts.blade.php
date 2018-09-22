@@ -77,8 +77,6 @@
             </div>
         </div>
     </div>
-
-    <div id="map" class="colorlib-map"></div>
 @endsection
 
 @section('page_scripts')

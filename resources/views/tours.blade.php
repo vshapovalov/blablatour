@@ -25,6 +25,9 @@
                                                     @endfor
                                                 </span>
                                             </p>
+                                            <h2>
+                                                <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>
+                                            </h2>
 											<span class="city">{{ $tour->place }}</span>
 										</span>
                                 </div>
