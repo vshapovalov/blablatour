@@ -31,11 +31,54 @@
                                 <div class="">{!!  $post->body !!}</div>
                             </div>
                         </article>
-                        <div class="row">
-                            <div class="col-md-12 animate-box text-center fadeInUp animated-fast">
-                                <p><a href="#" class="btn btn-primary">{{ $labels->firstWhere('code','=','book_now')->label }}</a></p>
-                            </div>
+
+                        <div class="animate-box">
+                            <h3>{{ 'Отправить заявку' }}</h3>
+                            <form method="POST" action="{{ page_route('send_form') }}">
+                                {{ csrf_field() }}
+                                <input type="text" hidden name="form_name" value="get_excursion">
+                                <input type="text" hidden name="target" value="{{ $post->title }}">
+                                <div class="row form-group">
+                                    <div class="col-md-6 padding-bottom">
+                                        <label for="fname">{{ $labels->firstWhere('code','=','first_name')->label }}</label>
+                                        <input type="text" name="first_name" id="fname" class="form-control" placeholder="" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lname">{{ $labels->firstWhere('code','=','last_name')->label }}</label>
+                                        <input type="text" name="last_name" id="lname" class="form-control" placeholder="" required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col-md-6">
+                                        <label for="email">{{ $labels->firstWhere('code','=','email')->label }}</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="phone">{{ $labels->firstWhere('code','=','phone')->label }}</label>
+                                        <input type="tel" id="email" name="phone" class="form-control" placeholder="" >
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col-md-6">
+                                        <label for="date">{{ $labels->firstWhere('code','=','excursion_date')->label }}</label>
+                                        <div class="form-field">
+                                            <i class="icon icon-calendar2"></i>
+                                            <input type="text" id="date" name="target_date" class="form-control date" placeholder="" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group text-center">
+                                    <input type="submit" value="{{ $labels->firstWhere('code','=','send')->label }}" class="btn btn-primary">
+                                </div>
+                            </form>
                         </div>
+
+
+
                     </div>
                 </div>
 

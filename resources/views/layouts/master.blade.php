@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?123123123">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -130,11 +130,13 @@
                 <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
                     <h2>{{ $labels->firstWhere('code','=','subscribe_title')->label }}</h2>
                     <p>{{ $labels->firstWhere('code','=','subscribe_description')->label }}</p>
-                    <form class="form-inline qbstp-header-subscribe">
+                    <form method="POST" action="{{ page_route('send_form') }}" class="form-inline qbstp-header-subscribe">
+                        {{ csrf_field() }}
+                        <input type="text" hidden name="form_name" value="subscribe">
                         <div class="row">
                             <div class="col-md-12 col-md-offset-0">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
+                                    <input type="text" name="email" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
                                     <button type="submit" class="btn btn-primary">{{ $labels->firstWhere('code','=','subscribe_button')->label }}</button>
                                 </div>
                             </div>

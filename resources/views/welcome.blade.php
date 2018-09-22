@@ -161,7 +161,7 @@
                     @foreach(\App\Excursion::all() as $excursion)
                     <div class="item">
                         <div class="hotel-entry">
-                            <a href="{{ $excursion->slug }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
+                            <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
                                 <p class="price"><span>{{ $excursion->price }}</span></p>
                             </a>
                             <div class="desc">
@@ -172,7 +172,7 @@
                                         @endfor
                                     </span>
                                 </p>
-                                <h3><a href="{{ $excursion->slug }}">{{ $excursion->title }}</a></h3>
+                                <h3><a href="{{ page_route('excursion', ['slug' => $excursion->slug])  }}">{{ $excursion->title }}</a></h3>
                                 <span class="place">{{ $excursion->place }}</span>
                                 <p>{{ $excursion->excerpt }}</p>
                             </div>
