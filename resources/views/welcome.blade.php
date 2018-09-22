@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="tour-wrap">
-        @foreach(\App\Tour::take(8)->get() as $tour )
+        @foreach(\App\Tour::where('is_popular', '<>', 0)->take(8)->get() as $tour )
         <a href="#" class="tour-entry animate-box">
             <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
             <span class="desc">

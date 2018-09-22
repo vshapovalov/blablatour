@@ -11,16 +11,7 @@
     <meta name="description" content="{{ $labels->firstWhere('code','=','site_description')->label }}" />
     <meta name="keywords" content="{{ $labels->firstWhere('code','=','site_keywords')->label }}" />
 
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:description" content=""/>
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
+    @yield('socialtags')
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 
@@ -113,6 +104,9 @@
                                 <div class="slider-text-inner text-center">
                                     <h2>{{ $slide->subheading }}</h2>
                                     <h1>{{ $slide->headline }}</h1>
+                                    @if($slide->url)
+                                        <a href="{{ $slide->url }}" class="btn btn-primary">{{ $slide->button_caption ? $slide->button_caption : 'Перейти' }}</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -159,8 +153,9 @@
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
                     <ul class="colorlib-social-icons">
-                        <li><a href="{{ $labels->firstWhere('code','=','url_twitter')->label }}" target="_blank"><i class="icon-twitter"></i></a></li>
                         <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                        <li><a href="{{ $labels->firstWhere('code','=','url_vk')->label }}" target="_blank"><i class="icon-vk"></i></a></li>
+                        <li><a href="{{ $labels->firstWhere('code','=','url_insta')->label }}" target="_blank"><i class="icon-instagram"></i></a></li>
                         {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
                         {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
                     </ul>
