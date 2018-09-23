@@ -19,6 +19,11 @@
 @endphp
 
 @section('page')
+    <div id="colorlib-reservation" style="padding: 20px 0;     background: #2C2E3E">
+        <div class="container text-center" style="display: flex; justify-content: center">
+            <script charset="utf-8" src="//www.travelpayouts.com/widgets/13bd659d78d7212628ee963db15130f6.js?v=1506" async></script>
+        </div>
+    </div>
     <div id="colorlib-blog">
         <div class="container">
             <div class="row">
