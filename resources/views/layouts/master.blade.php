@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?123155555231">
+    <link rel="stylesheet" href="/css/style.css?123155555232">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>

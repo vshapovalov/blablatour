@@ -29,7 +29,7 @@
                                     </p>
                                 </div>
                                 <h2><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
-                                <div class="">{!!  $post->body !!}</div>
+                                <div class=""  style="color: black">{!!  $post->body !!}</div>
                             </div>
                         </article>
                     </div>

@@ -93,7 +93,7 @@
                 <div class="row">
                     @foreach(\App\Post::orderBy('created_at', 'desc')->with(['category'])->take(3)->get() as $post)
                     <div class="col-md-12 animate-box">
-                        <a href="{{ $post->slug }}" class="blog-post">
+                        <a href="{{ page_route('post', [ 'slug' => $post->slug ]) }}" class="blog-post">
                             <span class="img" style="background-image: url({{ $post->image }});"></span>
                             <div class="desc">
                                 <span class="date">{{ $post->created_at }}</span>
