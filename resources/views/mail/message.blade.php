@@ -10,10 +10,10 @@
 <body>
 <p>Поступило сообщение обратной связи</p>
 <br>
-<p>Е-mail <b>{{ $message->email }}</b> </p>
-<p>ФИО <b>{{ $message->name }}</b> </p>
-<p>Телефон <b>{{ $message->phone }}</b> </p>
-<p>Тема сообщения <b>{{ $message->subject }}</b> </p>
-<p>Сообщение <b>{{ $message->message }}</b> </p>
+<p>Е-mail <b>{{ $messageObject->email }}</b> </p>
+<p>ФИО <b>{{ $messageObject->name }}</b> </p>
+<p>Телефон <b>{{ $messageObject->phone }}</b> </p>
+<p>Тема сообщения <b>{{ $messageObject->subject }}</b> </p>
+<p>Сообщение <b>{{ $messageObject->message }}</b> </p>
 </body>
 </html>

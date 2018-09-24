@@ -12,7 +12,7 @@ class SendMessage extends Mailable
     use Queueable, SerializesModels;
 
 
-	public $message;
+	public $messageObject;
 
 	/**
 	 * Create a new message instance.
@@ -21,7 +21,7 @@ class SendMessage extends Mailable
 	 */
 	public function __construct( $message )
 	{
-		$this->message = $message;
+		$this->messageObject = $message;
 	}
 
     /**
