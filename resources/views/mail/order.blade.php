@@ -14,6 +14,7 @@
 <p>ФИО <b>{{ $order->name }}</b> </p>
 <p>Телефон <b>{{ $order->phone }}</b> </p>
 <p>Название тура/экскурсии <b>{{ $order->target_name }}</b> </p>
+<p>Количество человек <b>{{ $order->persons }}</b> </p>
 <p>Дата экскурсии <b>{{ $order->target_date }}</b> </p>
 </body>
 </html>

@@ -13,6 +13,7 @@ class Order extends Model
 		'phone',
 		'target_name',
 		'target_date',
+		'persons'
 	];
 	public $timestamps = false;
 }

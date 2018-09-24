@@ -5,6 +5,14 @@
 @endphp
 
 @section('page')
+    @if(session()->has('success_message'))
+        <div class="container">
+            <div class="text-center" style="padding: 50px 0 0;">
+                <h3>{{ session()->get('success_message') }}</h3>
+                <a href="\" class="btn btn-primary">Вернуться на главную</a>
+            </div>
+        </div>
+    @endif
     <div class="colorlib-wrap">
         <div class="container">
             <div class="row">

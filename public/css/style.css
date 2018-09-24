@@ -378,6 +378,9 @@ h1, h2, h3, h4, h5, h6, figure {
 .colorlib-light-grey {
   background: #fafafa; }
 
+.colorlib-grey {
+  background: #f1f1f1; }
+
 #colorlib-hotel,
 .colorlib-tour,
 .colorlib-wrap,
@@ -405,6 +408,10 @@ h1, h2, h3, h4, h5, h6, figure {
     #colorlib-subscribe,
     #colorlib-footer {
       padding: 5em 0; } }
+
+#colorlib-testimony{
+  padding: 1em 0;
+}
 
 .colorlib-services {
   padding: 3em !important; }
@@ -1355,7 +1362,7 @@ article {
     box-shadow: none;
     border: 1px solid rgba(0, 0, 0, 0.8); }
 
-input[type="text"] {
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"]{
   height: 50px; }
 
 .form-group {

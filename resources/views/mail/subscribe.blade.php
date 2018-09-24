@@ -9,6 +9,6 @@
 </head>
 <body>
 <p>Оформлена подписка на рассылку нововстей</p>
-<p>Подписчик <b>{{ $subscriber->email }}</b> </p>
+<p>Подписчик <b>{{ $subscribe->email }}</b> </p>
 </body>
 </html>

@@ -45,8 +45,8 @@
                                     <input type="text" name="first_name" id="fname" class="form-control" placeholder="" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="lname">{{ $labels->firstWhere('code','=','last_name')->label }}</label>
-                                    <input type="text" name="last_name" id="lname" class="form-control" placeholder="" required>
+                                    <label for="persons">{{ $labels->firstWhere('code','=','persons_qty')->label }}</label>
+                                    <input type="number" name="persons" id="persons" class="form-control" placeholder="" value="1" required>
                                 </div>
                             </div>
 

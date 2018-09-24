@@ -14,7 +14,7 @@
                         <i class="flaticon-around"></i>
                     </span>
                     <h3>{{ $labels->firstWhere('code','=','achive_1_title')->label }}</h3>
-                    <p>{{ $labels->firstWhere('code','=','achive_1_description')->label }}</p>
+                    <p style="color: black;">{{ $labels->firstWhere('code','=','achive_1_description')->label }}</p>
                 </div>
             </div>
             <div class="col-md-3 animate-box text-center">
@@ -48,41 +48,33 @@
     </div>
 </div>
 
-<div id="colorlib-hotel">
+<div class="colorlib-tour colorlib-light-grey">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','excursion_title')->label }}</h2>
-                <p>{{ $labels->firstWhere('code','=','excursion_description')->label }}</p>
+                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 animate-box">
-                <div class="owl-carousel">
-                    @foreach(\App\Excursion::all() as $excursion)
-                        <div class="item">
-                            <div class="hotel-entry">
-                                <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
-                                    <p class="price"><span>{{ $excursion->price }}</span></p>
-                                </a>
-                                <div class="desc">
-                                    <p class="star">
-                                    <span>
-                                        @for($i=0;$i<$excursion->rating;$i++)
-                                            <i class="icon-star-full"></i>
-                                        @endfor
-                                    </span>
-                                    </p>
-                                    <h3><a href="{{ page_route('excursion', ['slug' => $excursion->slug])  }}">{{ $excursion->title }}</a></h3>
-                                    <span class="place">{{ $excursion->place }}</span>
-                                    <p>{{ $excursion->excerpt }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="tour-wrap">
+        @foreach(\App\Tour::where('is_popular', '<>', 0)->take(8)->get() as $tour )
+            <a href="{{ page_route('tour', [ 'slug' => $tour->slug ]) }}" class="tour-entry animate-box">
+                <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
+                <span class="desc">
+                <p class="star">
+                    <span>
+                        @for($i=0;$i<$tour->rating;$i++)
+                            <i class="icon-star-full"></i>
+                        @endfor
+                    </span>
+                </p>
+                <h2>{{ $tour->title }}</h2>
+                <span class="city">{{ $tour->place }}</span>
+                <span class="price">{{ $tour->price }}</span>
+            </span>
+            </a>
+        @endforeach
     </div>
 </div>
 
@@ -149,41 +141,48 @@
     </div>
 </div>
 
-<div class="colorlib-tour colorlib-light-grey">
+<div id="colorlib-hotel">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
-                <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
+                <h2>{{ $labels->firstWhere('code','=','excursion_title')->label }}</h2>
+                <p>{{ $labels->firstWhere('code','=','excursion_description')->label }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 animate-box">
+                <div class="owl-carousel">
+                    @foreach(\App\Excursion::all() as $excursion)
+                        <div class="item">
+                            <div class="hotel-entry">
+                                <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
+                                    <p class="price"><span>{{ $excursion->price }}</span></p>
+                                </a>
+                                <div class="desc">
+                                    <p class="star">
+                                    <span>
+                                        @for($i=0;$i<$excursion->rating;$i++)
+                                            <i class="icon-star-full"></i>
+                                        @endfor
+                                    </span>
+                                    </p>
+                                    <h3><a href="{{ page_route('excursion', ['slug' => $excursion->slug])  }}">{{ $excursion->title }}</a></h3>
+                                    <span class="place">{{ $excursion->place }}</span>
+                                    <p>{{ $excursion->excerpt }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
-    <div class="tour-wrap">
-        @foreach(\App\Tour::where('is_popular', '<>', 0)->take(8)->get() as $tour )
-            <a href="#" class="tour-entry animate-box">
-                <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
-                <span class="desc">
-                <p class="star">
-                    <span>
-                        @for($i=0;$i<$tour->rating;$i++)
-                            <i class="icon-star-full"></i>
-                        @endfor
-                    </span>
-                </p>
-                <h2>{{ $tour->title }}</h2>
-                <span class="city">{{ $tour->place }}</span>
-                <span class="price">{{ $tour->price }}</span>
-            </span>
-            </a>
-        @endforeach
-    </div>
 </div>
 
-
-<div id="colorlib-testimony" class="colorlib-light-grey">
+<div id="colorlib-testimony" class="colorlib-grey">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
+            <div class="col-md-6 col-md-offset-3 text-center animate-box">
                 <h2>{{ $labels->firstWhere('code','=','feedback_title')->label }}</h2>
                 <p>{{ $labels->firstWhere('code','=','feedback_description')->label }}</p>
             </div>

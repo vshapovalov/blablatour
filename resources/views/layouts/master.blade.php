@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?12314444423">
+    <link rel="stylesheet" href="/css/style.css?123155555231">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -117,7 +117,7 @@
             </ul>
         </div>
     </aside>
-
+    <div class="container"></div>
     @yield('page')
 
     <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
@@ -133,7 +133,12 @@
                         <div class="row">
                             <div class="col-md-12 col-md-offset-0">
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" id="email" placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}">
+                                    <input
+                                            type="email" name="email"
+                                            class="form-control" id="email"
+                                            placeholder="{{ $labels->firstWhere('code','=','subscribe_placeholder')->label }}"
+                                            required
+                                    >
                                     <button type="submit" class="btn btn-primary">{{ $labels->firstWhere('code','=','subscribe_button')->label }}</button>
                                 </div>
                             </div>
