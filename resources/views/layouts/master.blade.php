@@ -156,14 +156,22 @@
                     <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
-                    <ul class="colorlib-social-icons">
-                        <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
-                        <li><a href="{{ $labels->firstWhere('code','=','url_vk')->label }}" target="_blank"><i class="icon-vk"></i></a></li>
-                        <li><a href="{{ $labels->firstWhere('code','=','url_insta')->label }}" target="_blank"><i class="icon-instagram"></i></a></li>
-                        {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
-                        {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
-                    </ul>
+                        <ul class="colorlib-social-icons">
+                            <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                            <li><a href="{{ $labels->firstWhere('code','=','url_vk')->label }}" target="_blank"><i class="icon-vk"></i></a></li>
+                            <li><a href="{{ $labels->firstWhere('code','=','url_insta')->label }}" target="_blank"><i class="icon-instagram"></i></a></li>
+                            {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
+                            {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
+                        </ul>
                     </p>
+                    <div id="TA_cdsratingsonlywide192" class="TA_cdsratingsonlywide">
+                        <ul id="5bMhOAoY" class="TA_links 4ZhdMSGK">
+                            <li id="rNYtNWU" class="pF07FIpM">
+                                <a target="_blank" href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <script async src="https://www.jscache.com/wejs?wtype=cdsratingsonlywide&uniq=192&locationId=14768947&lang=en_US&amp;border=false&shadow=false&backgroundColor=gray&display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
                 </div>
                 <div class="col-md-2 colorlib-widget">
                 </div>
@@ -210,7 +218,6 @@
 <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 </div>
-
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
