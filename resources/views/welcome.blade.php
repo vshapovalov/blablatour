@@ -59,7 +59,7 @@
     </div>
     <div class="tour-wrap">
         @foreach(\App\Excursion::where('is_popular', '<>', 0)->take(8)->get() as $tour )
-            <a href="{{ page_route('tour', [ 'slug' => $tour->slug ]) }}" class="tour-entry animate-box">
+            <a href="{{ page_route('excursion', [ 'slug' => $tour->slug ]) }}" class="tour-entry animate-box">
                 <div class="tour-img" style="background-image: url({{ $tour->image }});"></div>
                 <span class="desc">
                 <p class="star">
@@ -155,7 +155,7 @@
                     @foreach(\App\Tour::all() as $excursion)
                         <div class="item">
                             <div class="hotel-entry">
-                                <a href="{{ page_route('excursion', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
+                                <a href="{{ page_route('tour', ['slug' => $excursion->slug]) }}" class="hotel-img" style="background-image: url({{ $excursion->image }});">
                                     <p class="price"><span>{{ $excursion->price }}</span></p>
                                 </a>
                                 <div class="desc">
