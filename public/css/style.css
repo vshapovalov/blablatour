@@ -265,6 +265,10 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   float: left;
   z-index: 0; }
+
+#colorlib-hero.small {
+  height: 450px;
+}
   #colorlib-hero .btn {
     font-size: 24px; }
     #colorlib-hero .btn.btn-primary {
@@ -282,6 +286,11 @@ h1, h2, h3, h4, h5, h6, figure {
         background-position: center center;
         height: 650px;
         position: relative; }
+
+        #colorlib-hero.small .flexslider .slides li {
+          height: 450px;
+        }
+
         #colorlib-hero .flexslider .slides li .overlay {
           position: absolute;
           top: 0;

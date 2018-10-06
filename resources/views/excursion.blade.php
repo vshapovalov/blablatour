@@ -11,6 +11,31 @@
     $labels = \App\Label::all();
 @endphp
 
+@section('hero')
+    <aside id="colorlib-hero" class="small">
+        <div class="flexslider">
+            <ul class="slides">
+                <li style="background-image: url({{ $post->image }});">
+                    <div class="overlay"></div>
+                    {{--<div class="container-fluid">--}}
+                    {{--<div class="row">--}}
+                    {{--<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">--}}
+                    {{--<div class="slider-text-inner text-center">--}}
+                    {{--<h2>{{ $slide->subheading }}</h2>--}}
+                    {{--<h1>{{ $slide->headline }}</h1>--}}
+                    {{--@if($slide->url)--}}
+                    {{--<a href="{{ $slide->url }}" class="btn btn-primary">{{ $slide->button_caption ? $slide->button_caption : 'Перейти' }}</a>--}}
+                    {{--@endif--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                </li>
+            </ul>
+        </div>
+    </aside>
+@overwrite
+
 @section('page')
     <div id="colorlib-blog">
         <div class="container">
@@ -22,7 +47,7 @@
                             <div class="desc">
                                 <div class="meta">
                                     <p>
-                                        <span>{{ $post->created_at }} </span>
+                                        {{--<span>{{ $post->created_at }} </span>--}}
                                         {{--<span>admin </span>--}}
                                         {{--<span><a href="#">2 Comments</a></span>--}}
                                     </p>
@@ -33,7 +58,7 @@
                         </article>
 
                         <div class="animate-box">
-                            <h3>{{ 'Отправить заявку' }}</h3>
+                            <h3>{{ $labels->firstWhere('code','=','excursion_page_form_title')->label }}</h3>
                             <form method="POST" action="{{ page_route('send_form') }}">
                                 {{ csrf_field() }}
                                 <input type="text" hidden name="form_name" value="get_excursion">

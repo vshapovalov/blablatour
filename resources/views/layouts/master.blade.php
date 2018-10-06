@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?123155555232">
+    <link rel="stylesheet" href="/css/style.css?201810062311">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -93,6 +93,7 @@
             </div>
         </div>
     </nav>
+    @section('hero')
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
@@ -117,6 +118,7 @@
             </ul>
         </div>
     </aside>
+    @show
     <div class="container"></div>
     @yield('page')
 
