@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="blog-flex">
-            <div class="f-entry-img" style="background-image: url(images/blog-3.jpg);">
+            <div class="f-entry-img" style="background-image: url({{ count( crud_image(crud_settings('site.blog_bg'), true)) ? crud_image(crud_settings('site.blog_bg'), true)[0] : 'images/blog-3.jpg' }});">
             </div>
             <div class="blog-entry aside-stretch-right">
                 <div class="row">
