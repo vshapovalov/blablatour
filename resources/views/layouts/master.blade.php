@@ -6,10 +6,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ $labels->firstWhere('code','=','site_title')->label }}</title>
+    <title>@yield('meta_title'){{ $labels->firstWhere('code','=','site_title')->label }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $labels->firstWhere('code','=','site_description')->label }}" />
-    <meta name="keywords" content="{{ $labels->firstWhere('code','=','site_keywords')->label }}" />
+    <meta name="description" content="@yield('meta_description', $labels->firstWhere('code','=','site_description')->label)" />
+    <meta name="keywords" content="@yield('meta_keywords', $labels->firstWhere('code','=','site_keywords')->label)" />
     <meta name="B-verify" content="0c34dd0302136b214c7124544c6193e090686f4e" />
 
     @yield('socialtags')

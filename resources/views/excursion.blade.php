@@ -11,6 +11,10 @@
     $labels = \App\Label::all();
 @endphp
 
+@section('meta_title', $post->meta_title . ' | ')
+@section('meta_description', $post->meta_description)
+@section('meta_keywords', $post->meta_keywords)
+
 @section('hero')
     <aside id="colorlib-hero" class="small">
         <div class="flexslider">

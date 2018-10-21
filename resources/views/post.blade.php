@@ -12,6 +12,10 @@
     $labels = \App\Label::all();
 @endphp
 
+@section('meta_title', $post->meta_title . ' | ')
+@section('meta_description', $post->meta_description)
+@section('meta_keywords', $post->meta_keywords)
+
 @section('page')
     <div id="colorlib-blog">
         <div class="container">
