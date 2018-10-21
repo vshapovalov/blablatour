@@ -1,5 +1,7 @@
 @php
-    $labels = \App\Label::all();
+    $labels = cache()->rememberForever('labels', function() {
+        return \App\Label::all();
+    });
 @endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
@@ -10,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', $labels->firstWhere('code','=','site_description')->label)" />
     <meta name="keywords" content="@yield('meta_keywords', $labels->firstWhere('code','=','site_keywords')->label)" />
-    <meta name="B-verify" content="0c34dd0302136b214c7124544c6193e090686f4e" />
+    {!! crud_settings('site.head_scripts') !!}
 
     @yield('socialtags')
 

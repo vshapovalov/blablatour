@@ -9,7 +9,9 @@
 
     $categories = \App\PostCategory::all();
     $lastPosts = \App\Post::orderBy('id', 'desc')->take(3)->get();
-    $labels = \App\Label::all();
+    $labels = cache()->rememberForever('labels', function() {
+        return \App\Label::all();
+    });
 @endphp
 
 @section('meta_title', $post->meta_title . ' | ')

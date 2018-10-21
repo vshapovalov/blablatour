@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @php
-    $labels = \App\Label::all();
+    $labels = cache()->rememberForever('labels', function() {
+        return \App\Label::all();
+    });
 @endphp
 
 @section('page')
