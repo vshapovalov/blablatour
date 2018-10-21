@@ -57,6 +57,13 @@
                             </div>
                         </article>
 
+                        @if($post->route)
+                            <div class="tour-route" style="margin-bottom: 30px">
+                                <h3>{{ $labels->firstWhere('code','=','excursion_route_title')->label }}</h3>
+                                {!! $post->route !!}
+                            </div>
+                        @endif
+
                         <div class="animate-box">
                             <h3>{{ $labels->firstWhere('code','=','excursion_page_form_title')->label }}</h3>
                             <form method="POST" action="{{ page_route('send_form') }}">

@@ -1908,3 +1908,12 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 
 .js .animate-box {
   opacity: 0; }
+
+.tour-route {
+  margin-bottom: 30px;
+}
+
+.tour-route iframe{
+  width: 100% !important;
+  height: 400px !important;
+}
