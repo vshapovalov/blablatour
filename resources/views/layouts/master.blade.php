@@ -12,11 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('meta_description', $labels->firstWhere('code','=','site_description')->label)" />
     <meta name="keywords" content="@yield('meta_keywords', $labels->firstWhere('code','=','site_keywords')->label)" />
+
     {!! crud_settings('site.head_scripts') !!}
 
     @yield('socialtags')
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <link rel="canonical" href="{{ url()->current() . (request()->getQueryString() ? '?' . request()->getQueryString() : '') }}" />
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="/css/animate.css">
