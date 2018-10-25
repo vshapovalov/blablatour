@@ -1,7 +1,16 @@
 @extends('layouts.master')
 
 @php
-    $tours = \App\Excursion::paginate(6);
+    $qb = \App\Excursion::with(['categories']);
+    if ($catSlug = $params['slug']['value']) {
+
+        if ($cat = \App\ExcursionCategory::where('slug', $catSlug)->first())
+
+        $qb = $qb->whereHas('categories', function($q) use ($catSlug){
+            return $q->where('slug', $catSlug);
+        });
+    }
+    $tours = $qb->paginate(6);
 @endphp
 
 @section('page')
@@ -15,6 +24,12 @@
     @endif
     <div class="colorlib-wrap">
         <div class="container">
+            @if(isset($cat) && $cat)
+                <div class="row">
+                    <h3>{{ $cat->title }}</h3>
+                    {!! $cat->description !!}
+                </div>
+            @endif
             <div class="row">
                 <div class="">
                     <div class="row">
@@ -32,6 +47,9 @@
                                                         <i class="icon-star-full"></i>
                                                     @endfor
                                                 </span>
+                                                @foreach($tour->categories as $category)
+                                                    <span><a href="{{ page_route('excursions', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
+                                                @endforeach
                                             </p>
                                             <h2>
                                                 <a href="{{ page_route('excursion', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>

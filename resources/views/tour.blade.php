@@ -70,7 +70,13 @@
                         {!! $post->route !!}
                     </div>
                     @endif
-                    
+
+                    <div class="" style="margin-bottom: 20px;">
+                        @foreach($post->categories as $category)
+                            <a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a>
+                        @endforeach
+                    </div>
+
                     <div class="animate-box">
                         <h3>{{ $labels->firstWhere('code','=','tour_page_form_title')->label }}</h3>
                         <form method="POST" action="{{ page_route('send_form') }}">

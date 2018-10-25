@@ -1,7 +1,16 @@
 @extends('layouts.master')
 
 @php
-    $tours = \App\Tour::paginate(6);
+    $qb = \App\Tour::with(['categories']);
+    if ($catSlug = $params['slug']['value']) {
+
+        if ($cat = \App\TourCategory::where('slug', $catSlug)->first())
+
+        $qb = $qb->whereHas('categories', function($q) use ($catSlug){
+            return $q->where('slug', $catSlug);
+        });
+    }
+    $tours = $qb->paginate(6);
 @endphp
 
 @section('page')
@@ -16,6 +25,12 @@
 
     <div class="colorlib-wrap">
         <div class="container">
+            @if(isset($cat) && $cat)
+            <div class="row">
+                <h3>{{ $cat->title }}</h3>
+                {!! $cat->description !!}
+            </div>
+            @endif
             <div class="row">
                 <div class="">
                     <div class="row">
@@ -27,18 +42,21 @@
                                         <p class="price"><span>{{ $tour->price }}</span> <small>/ {{ $tour->days }}</small></p>
                                     </a>
                                     <span class="desc">
-											<p class="star">
-                                                <span>
-                                                    @for($i=0;$i<$tour->rating;$i++)
-                                                        <i class="icon-star-full"></i>
-                                                    @endfor
-                                                </span>
-                                            </p>
-                                            <h2>
-                                                <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>
-                                            </h2>
-											<span class="city">{{ $tour->place }}</span>
-										</span>
+                                        <p class="star">
+                                            <span>
+                                                @for($i=0;$i<$tour->rating;$i++)
+                                                    <i class="icon-star-full"></i>
+                                                @endfor
+                                            </span>
+                                            @foreach($tour->categories as $category)
+                                                <span><a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
+                                            @endforeach
+                                        </p>
+                                        <h2>
+                                            <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>
+                                        </h2>
+                                        <span class="city">{{ $tour->place }}</span>
+                                    </span>
                                 </div>
                             </div>
                             @endforeach
