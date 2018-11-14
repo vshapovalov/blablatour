@@ -2,6 +2,7 @@
     $labels = cache()->rememberForever('labels', function() {
         return \App\Label::all();
     });
+
 @endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
@@ -19,6 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link rel="canonical" href="{{ url()->current() . (request()->getQueryString() ? '?' . request()->getQueryString() : '') }}" />
+    <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="/css/animate.css">
@@ -43,7 +45,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?201810072311">
+    <link rel="stylesheet" href="/css/style.css?201810072313">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -87,11 +89,7 @@
                         </div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
-                        <ul>
-                            @foreach(\Vshapovalov\Crud\Models\MenuItem::orderBy('order')->get() as $menu)
-                            <li class="is-active"><a href="{{ $menu->url }}">{{ $menu->title }}</a></li>
-                            @endforeach
-                        </ul>
+                            {!! crud_menu('main') !!}
                     </div>
                 </div>
             </div>
@@ -213,9 +211,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 text-center footer_link">
                     <p>
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | With <i class="icon-heart2" aria-hidden="true"></i> Bla Bla Tour
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | With <i class="icon-heart2" aria-hidden="true"></i> <a href="/"> Bla Bla Tour</a>
                     </p>
                 </div>
             </div>

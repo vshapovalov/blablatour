@@ -1544,19 +1544,20 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
     -o-transform: translateX(0px);
     transform: translateX(0px); }
   #colorlib-offcanvas a {
-    color: rgba(255, 255, 255, 0.5); }
+    color: rgba(255, 255, 255, 1); }
     #colorlib-offcanvas a:hover {
       color: rgba(255, 255, 255, 0.8); }
-  #colorlib-offcanvas ul {
-    padding: 0;
-    margin: 0; }
+  /*#colorlib-offcanvas ul {*/
+    /*padding: 0;*/
+    /*margin: 0; }*/
     #colorlib-offcanvas ul li {
       padding: 0;
       margin: 0;
       list-style: none; }
-      #colorlib-offcanvas ul li > ul {
-        padding-left: 20px;
-        display: none; }
+      /*#colorlib-offcanvas ul li > ul {*/
+        /*padding-left: 20px;*/
+        /*display: none;*/
+      /*}*/
       #colorlib-offcanvas ul li.offcanvas-has-dropdown > a {
         display: block;
         position: relative; }
