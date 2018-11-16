@@ -2,8 +2,6 @@
     $labels = cache()->rememberForever('labels', function() {
         return \App\Label::all();
     });
-
-
 @endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
@@ -21,7 +19,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link rel="canonical" href="{{ url()->current() . (request()->getQueryString() ? '?' . request()->getQueryString() : '') }}" />
-    <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="/css/animate.css">
@@ -46,7 +43,8 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?201810072313">
+    <link rel="stylesheet" href="/css/style.css?201810072314">
+    <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">
 
     <!-- Modernizr JS -->
     <script src="/js/modernizr-2.6.2.min.js"></script>
@@ -90,37 +88,37 @@
                         </div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
-                            {!! crud_menu('main') !!}
+                        {!! crud_menu('main') !!}
                     </div>
                 </div>
             </div>
         </div>
     </nav>
     @section('hero')
-    <aside id="colorlib-hero">
-        <div class="flexslider">
-            <ul class="slides">
-                @foreach(\App\Slide::all() as $slide)
-                <li style="background-image: url({{ $slide->image }});">
-                    <div class="overlay"></div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
-                                <div class="slider-text-inner text-center">
-                                    <h2>{{ $slide->subheading }}</h2>
-                                    <h1>{{ $slide->headline }}</h1>
-                                    @if($slide->url)
-                                        <a href="{{ $slide->url }}" class="btn btn-primary">{{ $slide->button_caption ? $slide->button_caption : 'Перейти' }}</a>
-                                    @endif
+        <aside id="colorlib-hero">
+            <div class="flexslider">
+                <ul class="slides">
+                    @foreach(\App\Slide::all() as $slide)
+                        <li style="background-image: url({{ $slide->image }});">
+                            <div class="overlay"></div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+                                        <div class="slider-text-inner text-center">
+                                            <h2>{{ $slide->subheading }}</h2>
+                                            <h1>{{ $slide->headline }}</h1>
+                                            @if($slide->url)
+                                                <a href="{{ $slide->url }}" class="btn btn-primary">{{ $slide->button_caption ? $slide->button_caption : 'Перейти' }}</a>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-    </aside>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </aside>
     @show
     <div class="container"></div>
     @yield('page')
@@ -161,13 +159,13 @@
                     <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
-                        <ul class="colorlib-social-icons">
-                            <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
-                            <li><a href="{{ $labels->firstWhere('code','=','url_vk')->label }}" target="_blank"><i class="icon-vk"></i></a></li>
-                            <li><a href="{{ $labels->firstWhere('code','=','url_insta')->label }}" target="_blank"><i class="icon-instagram"></i></a></li>
-                            {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
-                            {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
-                        </ul>
+                    <ul class="colorlib-social-icons">
+                        <li><a href="{{ $labels->firstWhere('code','=','url_facebook')->label }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                        <li><a href="{{ $labels->firstWhere('code','=','url_vk')->label }}" target="_blank"><i class="icon-vk"></i></a></li>
+                        <li><a href="{{ $labels->firstWhere('code','=','url_insta')->label }}" target="_blank"><i class="icon-instagram"></i></a></li>
+                        {{--<li><a href="{{ $labels->firstWhere('code','=','contact_email')->label }}"><i class="icon-linkedin"></i></a></li>--}}
+                        {{--<li><a href="{{ $labels->firstWhere('code','=','url_dribble')->label }}"><i class="icon-dribbble"></i></a></li>--}}
+                    </ul>
                     </p>
                     <div id="TA_rated971" class="TA_rated">
                         <ul id="f3ZKlKishPhe" class="TA_links ntIuRNHcjJwY">
@@ -187,7 +185,7 @@
                     <p>
                     <ul class="colorlib-footer-links">
                         @foreach(\App\Tour::take(4)->get() as $tour)
-                        <li><a href="{{ page_route('tour', ['slug' => $tour->slug])}}">{{ $tour->title }}</a></li>
+                            <li><a href="{{ page_route('tour', ['slug' => $tour->slug])}}">{{ $tour->title }}</a></li>
                         @endforeach
                     </ul>
                     </p>
@@ -196,7 +194,7 @@
                     <h4>Блог</h4>
                     <ul class="colorlib-footer-links">
                         @foreach(\App\Post::take(3)->get() as $post)
-                        <li><a href="{{ page_route('post', ['slug' => $post->slug])}}">{{ $post->title }}</a></li>
+                            <li><a href="{{ page_route('post', ['slug' => $post->slug])}}">{{ $post->title }}</a></li>
                         @endforeach
                     </ul>
                 </div>

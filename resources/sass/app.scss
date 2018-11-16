@@ -7,7 +7,7 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
@@ -82,6 +82,10 @@
 .footer_link{
   a{
     color: #8e8f9e;
+
+    &:hover{
+      color: #e6186e;
+    }
   }
 }
 
