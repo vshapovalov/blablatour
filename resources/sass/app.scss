@@ -6,9 +6,6 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
-
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -86,19 +83,6 @@
     &:hover{
       color: #e6186e;
     }
-  }
-}
-
-.rates{
-  margin: 0 10px;
-  top: 450px;
-  left: 170px;
-  position: absolute;
-
-  @include tablet{
-    margin: 300px 10px;
-    float: right;
-    position: static;
   }
 }
 
