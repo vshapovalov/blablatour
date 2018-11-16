@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "c1e0e876bf4e8cb5c78a62666185cbce",
@@ -2534,16 +2534,16 @@
         },
         {
             "name": "vshapovalov/pages",
-            "version": "v1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vshapovalov/laravel-pages.git",
-                "reference": "b08b9c0a8a2b8f2d9334ac66654a7b9f04cd00b9"
+                "reference": "f3cb45884af7c536a2a1635c28b138c2f64f26c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vshapovalov/laravel-pages/zipball/b08b9c0a8a2b8f2d9334ac66654a7b9f04cd00b9",
-                "reference": "b08b9c0a8a2b8f2d9334ac66654a7b9f04cd00b9",
+                "url": "https://api.github.com/repos/vshapovalov/laravel-pages/zipball/f3cb45884af7c536a2a1635c28b138c2f64f26c7",
+                "reference": "f3cb45884af7c536a2a1635c28b138c2f64f26c7",
                 "shasum": ""
             },
             "type": "library",
@@ -2575,7 +2575,7 @@
                 "pages",
                 "routing"
             ],
-            "time": "2018-04-06T07:17:51+00:00"
+            "time": "2018-11-13T06:10:45+00:00"
         }
     ],
     "packages-dev": [
