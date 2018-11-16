@@ -85,6 +85,19 @@
   }
 }
 
+.rates{
+  margin: 0 10px;
+  top: 450px;
+  left: 170px;
+  position: absolute;
+
+  @include tablet{
+    margin: 300px 10px;
+    float: right;
+    position: static;
+  }
+}
+
 .default-view{
 
   h2{
@@ -98,6 +111,40 @@
 
   ul{
     list-style: disc;
+  }
+
+  table{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    caption{
+      background-color: #b51068;
+      caption-side: top; 
+      color: #fff;
+      text-align: center;
+    }
+
+    tr{
+      padding: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    th{
+      background-color: #b51068;
+      color: #fff;
+      border: 1px solid rgba(0,0,0,.1);
+      padding: 10px;
+    }
+
+    td{
+      border-width: 0 1px 1px 0;
+      border: 1px solid rgba(0,0,0,.1);
+      padding: 10px;
+    }
   }
 
 }
