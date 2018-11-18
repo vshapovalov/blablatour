@@ -77,6 +77,19 @@
   }
 }
 
+.rates{
+  margin: 0 10px;
+  top: 450px;
+  left: 170px;
+  position: absolute;
+
+  @include tablet{
+    margin: 300px 10px;
+    float: right;
+    position: static;
+  }
+}
+
 .footer_link{
   a{
     color: #8e8f9e;

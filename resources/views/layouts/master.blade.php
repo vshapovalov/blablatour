@@ -93,6 +93,11 @@
                 </div>
             </div>
         </div>
+        <div class="rates">
+            <div id='gcw_mainFvuhlDgHA' class='gcw_mainFvuhlDgHA'>
+                <script>function reloadFvuhlDgHA(){ var sc = document.getElementById('scFvuhlDgHA');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFvuhlDgHA';sc.src = 'https://freecurrencyrates.com/ru/widget-vertical?iso=USDRUBGEL&df=2&p=FvuhlDgHA&v=fits&source=fcr&width=245&width_title=0&firstrowvalue=1&thm=aaaaaa,ffffff,FF6B7F,DB4865,FFFFFF,4297D7,ffffff,2C4359,000000&title=%D0%9A%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B5%D1%80%20%D0%B2%D0%B0%D0%BB%D1%8E%D1%82&tzo=-360';var div = document.getElementById('gcw_mainFvuhlDgHA');div.parentNode.insertBefore(sc, div);} reloadFvuhlDgHA(); </script>
+            </div>
+        </div>
     </nav>
     @section('hero')
         <aside id="colorlib-hero">
