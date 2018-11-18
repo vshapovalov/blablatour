@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?201810072314">
+    <link rel="stylesheet" href="/css/style.css?201810072323">
     <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">
 
     <!-- Modernizr JS -->
