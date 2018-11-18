@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="/css/style.css?201810072326">
+    <link rel="stylesheet" href="/css/style.css?201810072328">
     <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}">
 
     <!-- Modernizr JS -->
@@ -111,7 +111,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h2>{{ $slide->subheading }}</h2>
-                                            <h1>{{ $slide->headline }}</h1>
+                                            <p>{{ $slide->headline }}</p>
                                             @if($slide->url)
                                                 <a href="{{ $slide->url }}" class="btn btn-primary">{{ $slide->button_caption ? $slide->button_caption : 'Перейти' }}</a>
                                             @endif
