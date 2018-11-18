@@ -658,7 +658,7 @@ h1, h2, h3, h4, h5, h6, figure {
             background: #e6186e;
             padding: 4px 7px; } }
     .tour-wrap .tour-entry:hover .tour-img {
-      top: -55%; }
+      top: -62%; }
       @media screen and (max-width: 768px) {
         .tour-wrap .tour-entry:hover .tour-img {
           top: 0; } }
