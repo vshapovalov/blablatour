@@ -77,17 +77,20 @@
   }
 }
 
-.rates{
-  margin: 0 10px;
-  top: 450px;
-  left: 170px;
-  position: absolute;
+.container__rates{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
-  @include tablet{
-    margin: 300px 10px;
-    float: right;
-    position: static;
-  }
+.rates{
+  position: absolute;
+  top: -170px;
+  z-index: 999;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .footer_link{
