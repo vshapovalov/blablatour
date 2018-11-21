@@ -8,6 +8,7 @@ use App\Tour;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Vshapovalov\Pages\Page;
+use Response;
 
 class SitemapController extends Controller
 {
@@ -76,6 +77,6 @@ class SitemapController extends Controller
             ];
         }));
 
-        return view('sitemap.xml', [ 'items' => $items]);
+        return response(view('sitemap.xml', [ 'items' => $items]))->header('Content-Type','application/xml');
     }
 }
