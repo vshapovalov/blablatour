@@ -1,22 +1,10 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
+// убираем все H1, кроме одного (в футере) для SEO
+$(window).load(function() {
+    $('h1').each(function() {
+        if (this.className != 'footer_brand'){
+            console.log(this.className);
+            let clName = 'class="' + (this.className ? this.className : 'h1toh2') + '"';
+            $(this).replaceWith('<h2 ' + clName + '> ' + $(this).html() + ' </h1>');
+        }    
+ });
 });

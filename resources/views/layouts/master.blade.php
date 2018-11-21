@@ -131,7 +131,7 @@
     </div>
     @yield('page')
 
-    <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+    <div id="colorlib-subscribe" style="background-image: url(/images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -164,7 +164,7 @@
         <div class="container">
             <div class="row row-pb-md">
                 <div class="col-md-2 colorlib-widget">
-                    <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
+                    <h1 class="footer_brand">{{ $labels->firstWhere('code','=','brand_title')->label }}</h1>
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
                     <ul class="colorlib-social-icons">
@@ -257,6 +257,7 @@
 @yield('page_scripts')
 <!-- Main -->
 <script src="/js/main.js"></script>
+<!-- <script src="/js/app.js"></script> -->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {
