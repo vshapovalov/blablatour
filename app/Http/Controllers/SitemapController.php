@@ -41,6 +41,15 @@ class SitemapController extends Controller
 
         $items = collect();
 
+        $items = $items->merge($pages->map(function($item,$key){
+            return [
+	            'loc' => page_route($item),
+                'lastmod' => $item->updated_at->tz('GMT')->toAtomString(),
+                'changefreq' => 'monthly',
+                'priority' => 1
+            ];
+        }));
+
         $items = $items->merge($posts->map(function($item,$key){
            return [
                'loc' => page_route('post', ['slug' => $item->slug]),
@@ -62,15 +71,6 @@ class SitemapController extends Controller
         $items = $items->merge($excursions->map(function($item,$key){
             return [
 	            'loc' => page_route('excursion', ['slug' => $item->slug]),
-                'lastmod' => $item->updated_at->tz('GMT')->toAtomString(),
-                'changefreq' => 'monthly',
-                'priority' => 1
-            ];
-        }));
-
-        $items = $items->merge($pages->map(function($item,$key){
-            return [
-	            'loc' => page_route($item),
                 'lastmod' => $item->updated_at->tz('GMT')->toAtomString(),
                 'changefreq' => 'monthly',
                 'priority' => 1
