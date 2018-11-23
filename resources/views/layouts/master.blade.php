@@ -164,7 +164,7 @@
         <div class="container">
             <div class="row row-pb-md">
                 <div class="col-md-2 colorlib-widget">
-                    <h1 class="footer_brand">{{ $labels->firstWhere('code','=','brand_title')->label }}</h1>
+                    <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
                     <ul class="colorlib-social-icons">
@@ -187,7 +187,7 @@
                     <script async src="https://www.jscache.com/wejs?wtype=rated&uniq=971&locationId=14768947&lang=en_US&display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
                 </div>
                 <div class="col-md-4 colorlib-widget">
-                    <h4>Мы в инстаграмм</h4>
+                    <h4>Мы в Instagram</h4>
                     <p>
                     <a href="https://instawidget.net/v/user/blablatour" id="link-4f66a903618f8c9887f9f091bb0041fa059fc9c5eb35aaa8cb1b3ac004373deb">@blablatour</a>
                     <script src="https://instawidget.net/js/instawidget.js?u=4f66a903618f8c9887f9f091bb0041fa059fc9c5eb35aaa8cb1b3ac004373deb&width=300px"></script>

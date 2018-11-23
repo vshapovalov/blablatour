@@ -33,9 +33,10 @@
             @endif
             <div class="row">
                 <div class="">
+                    @foreach($tours->chunk(3) as $chunk)
                     <div class="row">
                         <div class="wrap-division">
-                            @foreach($tours as $tour)
+                            @foreach($chunk as $tour)
                             <div class="col-md-4 col-sm-6 animate-box">
                                 <div class="tour">
                                     <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}" class="tour-img" style="background-image: url({{ $tour->image }});">
@@ -52,9 +53,11 @@
                                                 <span><a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
                                             @endforeach
                                         </p>
-                                        <h2>
-                                            <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>
-                                        </h2>
+                                        @if($tour == $tours->first())
+                                            <h1 class="h1toh2 h1toh2_tour"><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
+                                        @else
+                                            <h2><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
+                                        @endif
                                         <span class="city">{{ $tour->place }}</span>
                                     </span>
                                 </div>
@@ -62,6 +65,7 @@
                             @endforeach
                         </div>
                     </div>
+                    @endforeach
                     <div class="row">
                         <div class="col-md-12 text-center">
                             {{ $tours->links() }}

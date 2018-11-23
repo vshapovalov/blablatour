@@ -53,9 +53,11 @@
                                         <span><a href="{{ page_route('excursions', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
                                     @endforeach
                                 </p>
-                                <h2>
-                                    <a href="{{ page_route('excursion', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a>
-                                </h2>
+                                @if($tour == $tours->first())
+                                    <h1 class="h1toh2 h1toh2_excursion"><a href="{{ page_route('excursion', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
+                                @else
+                                    <h2><a href="{{ page_route('excursion', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
+                                @endif
                                 <span class="city">{{ $tour->place }}</span>
                             </span>
                         </div>

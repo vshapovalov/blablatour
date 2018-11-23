@@ -42,7 +42,11 @@
                                             {{--<span><a href="#">2 Comments</a></span>--}}
                                         </p>
                                     </div>
-                                    <h2><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
+                                    @if($post == $posts->first())  <!-- для СЕО на странице хоть один элемент H1  -->
+                                        <h1 class="h1toh2 h1toh2__blog"><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
+                                    @else
+                                        <h2><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
+                                    @endif
                                     <p>{{ $post->excerpt }}</p>
                                 </div>
                             </article>

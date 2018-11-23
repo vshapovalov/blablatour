@@ -93,6 +93,30 @@
   margin-right: 10px;
 }
 
+.h1toh2{
+  &.h1toh2__blog{
+    font-size: $font-size-00;
+  }
+
+  &.h1toh2_tour{
+    font-size: $font-size-12;
+    text-transform: uppercase;
+  }
+
+  &.h1toh2_excursion{
+    font-size: $font-size-12;
+    text-transform: uppercase;
+  }
+
+  &.h1toh2__contacts{
+    font-size: $font-size-1;
+  }
+  
+  a{
+    color: $color-black;
+  }
+}
+
 .footer_link{
   a{
     color: #8e8f9e;
