@@ -117,6 +117,14 @@
   }
 }
 
+.breadcrumb{
+  font-size: $font-size-7;
+
+  @include tablet{
+    font-size: $font-size-5;
+  }
+}
+
 .footer_link{
   a{
     color: #8e8f9e;

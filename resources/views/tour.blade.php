@@ -43,6 +43,7 @@
 @overwrite
 
 @section('page')
+{!! Breadcrumbs::render('tour', $post) !!}
     <div id="colorlib-blog">
         <div class="container">
             <div class="row">
