@@ -19,6 +19,7 @@
 @section('meta_keywords', $post->meta_keywords)
 
 @section('page')
+{!! Breadcrumbs::render('blog', $post) !!}
     <div id="colorlib-blog">
         <div class="container">
             <div class="row">
