@@ -26,6 +26,9 @@
             <script charset="utf-8" src="//www.travelpayouts.com/widgets/13bd659d78d7212628ee963db15130f6.js?v=1506" async></script>
         </div>
     </div>
+    <div class="h1tags">
+        <h1>{{ $labels->firstWhere('code','=','h1_blogs')->label }}</h1>
+    </div>
     <div id="colorlib-blog">
         <div class="container">
             <div class="row">
@@ -42,11 +45,7 @@
                                             {{--<span><a href="#">2 Comments</a></span>--}}
                                         </p>
                                     </div>
-                                    @if($post == $posts->first())  <!-- для СЕО на странице хоть один элемент H1  -->
-                                        <h1 class="h1toh2 h1toh2__blog"><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
-                                    @else
-                                        <h2><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
-                                    @endif
+                                    <h2><a href="{{ page_route('post', ['slug'=>$post->slug]) }}">{{ $post->title }}</a></h2>
                                     <p>{{ $post->excerpt }}</p>
                                 </div>
                             </article>

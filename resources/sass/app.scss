@@ -94,23 +94,7 @@
 }
 
 .h1toh2{
-  &.h1toh2__blog{
-    font-size: $font-size-00;
-  }
-
-  &.h1toh2_tour{
-    font-size: $font-size-12;
-    text-transform: uppercase;
-  }
-
-  &.h1toh2_excursion{
-    font-size: $font-size-12;
-    text-transform: uppercase;
-  }
-
-  &.h1toh2__contacts{
-    font-size: $font-size-1;
-  }
+  font-size: 34px;
   
   a{
     color: $color-black;
@@ -122,6 +106,20 @@
 
   @include tablet{
     font-size: $font-size-5;
+  }
+}
+
+.h1tags{
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+
+  h1{
+    margin: 0;
+    font-size: $font-size-5;
+    color: #e6186e;
   }
 }
 

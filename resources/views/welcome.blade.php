@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
-                <h2>{{ $labels->firstWhere('code','=','tour_title')->label }}</h2>
+                <h1 class="h1toh2">{{ $labels->firstWhere('code','=','tour_title')->label }}</h1>
                 <p>{{ $labels->firstWhere('code','=','tour_description')->label }}</p>
             </div>
         </div>

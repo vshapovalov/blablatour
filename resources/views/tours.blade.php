@@ -11,9 +11,16 @@
         });
     }
     $tours = $qb->paginate(6);
+
+    $labels = cache()->rememberForever('labels', function() {
+        return \App\Label::all();
+    });
 @endphp
 
 @section('page')
+    <div class="h1tags">
+        <h1>{{ $labels->firstWhere('code','=','h1_tours')->label }}</h1>
+    </div>
     @if(session()->has('success_message'))
     <div class="container">
         <div class="text-center" style="padding: 50px 0 0;">
@@ -53,11 +60,7 @@
                                                 <span><a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
                                             @endforeach
                                         </p>
-                                        @if($tour == $tours->first())
-                                            <h1 class="h1toh2 h1toh2_tour"><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
-                                        @else
-                                            <h2><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
-                                        @endif
+                                        <h2><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
                                         <span class="city">{{ $tour->place }}</span>
                                     </span>
                                 </div>

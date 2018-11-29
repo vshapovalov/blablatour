@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <div class="col-md-10 col-md-offset-1 animate-box">
-                    <h1 class="h1toh2 h1toh2__contacts">{{ $labels->firstWhere('code','=','contacts_info')->label }}</h1>
+                    <h3>{{ $labels->firstWhere('code','=','contacts_info')->label }}</h3>
                     <div class="row contact-info-wrap">
                         <div class="col-md-3">
                             <p><span><i class="icon-location"></i></span> {{ $labels->firstWhere('code','=','contact_address')->label }}</p>
