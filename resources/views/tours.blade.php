@@ -10,7 +10,7 @@
             return $q->where('slug', $catSlug);
         });
     }
-    $tours = $qb->paginate(6);
+    $tours = $qb->simplePaginate();;
 
     $labels = cache()->rememberForever('labels', function() {
         return \App\Label::all();
@@ -31,51 +31,42 @@
     @endif
 
     <div class="colorlib-wrap">
-        <div class="container">
-            @if(isset($cat) && $cat)
+        @if(isset($cat) && $cat)
+        <div class="container">            
             <div class="row">
                 <h3>{{ $cat->title }}</h3>
                 {!! $cat->description !!}
             </div>
-            @endif
-            <div class="row">
-                <div class="">
-                    @foreach($tours->chunk(3) as $chunk)
-                    <div class="row">
-                        <div class="wrap-division">
-                            @foreach($chunk as $tour)
-                            <div class="col-md-4 col-sm-6 animate-box">
-                                <div class="tour">
-                                    <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}" class="tour-img" style="background-image: url({{ $tour->image }});">
-                                        <p class="price"><span>{{ $tour->price }}</span> <small>/ {{ $tour->days }}</small></p>
-                                    </a>
-                                    <span class="desc">
-                                        <p class="star">
-                                            <span>
-                                                @for($i=0;$i<$tour->rating;$i++)
-                                                    <i class="icon-star-full"></i>
-                                                @endfor
-                                            </span>
-                                            @foreach($tour->categories as $category)
-                                                <span><a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
-                                            @endforeach
-                                        </p>
-                                        <h2><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
-                                        <span class="city">{{ $tour->place }}</span>
-                                    </span>
-                                </div>
+        </div>
+        @endif
+        <div class="container">
+            @foreach($tours->chunk(3) as $chunk)
+                <div class="row">
+                    @foreach($chunk as $tour)
+                        <div class="col-xs-12 col-md-4 animate-box">
+                            <div class="tour">
+                                <a href="{{ page_route('tour', ['slug' => $tour->slug]) }}" class="tour-img" style="background-image: url({{ $tour->image }});">
+                                    <p class="price"><span>{{ $tour->price }}</span> <small>/ {{ $tour->days }}</small></p>
+                                </a>
+                                <span class="desc">
+                                    <p class="star">
+                                        <span>
+                                            @for($i=0;$i<$tour->rating;$i++)
+                                                <i class="icon-star-full"></i>
+                                            @endfor
+                                        </span>
+                                        @foreach($tour->categories as $category)
+                                            <span><a href="{{ page_route('tours', ['slug'=>$category->slug]) }}" style="padding: 0 5px">#{{ $category->title }}</a></span>
+                                        @endforeach
+                                    </p>
+                                    <h2><a href="{{ page_route('tour', ['slug' => $tour->slug]) }}">{{ $tour->title }}</a></h2>
+                                    <span class="city">{{ $tour->place }}</span>
+                                </span>
                             </div>
-                            @endforeach
                         </div>
-                    </div>
                     @endforeach
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            {{ $tours->links() }}
-                        </div>
-                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
