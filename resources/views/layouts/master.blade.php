@@ -2,6 +2,21 @@
     $labels = cache()->rememberForever('labels', function() {
         return \App\Label::all();
     });
+    
+    
+    function CBR_XML_Daily_Ru() {        
+        $json_daily_file = __DIR__.'/daily.json';
+        if (!is_file($json_daily_file) || filemtime($json_daily_file) < time() - 3600) {
+            if ($json_daily = file_get_contents('https://www.cbr-xml-daily.ru/daily_json.js')) {
+                file_put_contents($json_daily_file, $json_daily);
+            }
+        }
+
+        return json_decode(file_get_contents($json_daily_file));
+    }
+
+    $data = CBR_XML_Daily_Ru();    
+    $json_daily_file = __DIR__.'/daily.json';
 @endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
@@ -124,8 +139,24 @@
     </div>
     <div class="container__rates">
         <div class="rates">
-            <div id='gcw_mainFvuhlDgHA' class='gcw_mainFvuhlDgHA'>
-                <script>function reloadFvuhlDgHA(){ var sc = document.getElementById('scFvuhlDgHA');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFvuhlDgHA';sc.src = 'https://freecurrencyrates.com/ru/widget-vertical?iso=USDRUBGEL&df=2&p=FvuhlDgHA&v=fits&source=fcr&width=245&width_title=0&firstrowvalue=1&thm=aaaaaa,ffffff,FF6B7F,DB4865,FFFFFF,4297D7,ffffff,2C4359,000000&title=%D0%9A%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B5%D1%80%20%D0%B2%D0%B0%D0%BB%D1%8E%D1%82&tzo=-360';var div = document.getElementById('gcw_mainFvuhlDgHA');div.parentNode.insertBefore(sc, div);} reloadFvuhlDgHA(); </script>
+            <div class='rates__table'>
+                <div class='rates__header'>
+                    <a href="https://www.cbr-xml-daily.ru/">Курсы валют ЦБ РФ на {{ date("d.m.Y", strtotime($data->Date))  }}</a>
+                </div>
+                <div class='rates__rate'>
+                    <table class='rates__table'>
+                        <tbody>
+                            <tr class='rates__tr'>
+                                <td class='rates__name' title='Доллар США'><b>USD</b> - Доллар США<td>
+                                <td class='rates__sign' title='$'>$<td>
+                                <td class='rates__cost'>{{ $data->Valute->USD->Value }} руб.<td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class='rates__footer'>
+                    <p>Последнее обновление: {{ date ("d.m.Y, H:i:s.", filemtime($json_daily_file) + + 60*60*3) }} (МСК)</p>
+                </div>
             </div>
         </div>
     </div>
