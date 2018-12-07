@@ -3,20 +3,6 @@
         return \App\Label::all();
     });
     
-    
-    function CBR_XML_Daily_Ru() {        
-        $json_daily_file = __DIR__.'/daily.json';
-        if (!is_file($json_daily_file) || filemtime($json_daily_file) < time() - 3600) {
-            if ($json_daily = file_get_contents('https://www.cbr-xml-daily.ru/daily_json.js')) {
-                file_put_contents($json_daily_file, $json_daily);
-            }
-        }
-
-        return json_decode(file_get_contents($json_daily_file));
-    }
-
-    $data = CBR_XML_Daily_Ru();    
-    $json_daily_file = __DIR__.'/daily.json';
 @endphp
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
@@ -136,29 +122,6 @@
         </aside>
     @show
     <div class="container">
-    </div>
-    <div class="container__rates">
-        <div class="rates">
-            <div class='rates__table'>
-                <div class='rates__header'>
-                    <a href="https://www.cbr-xml-daily.ru/">Курсы валют ЦБ РФ на {{ date("d.m.Y", strtotime($data->Date))  }}</a>
-                </div>
-                <div class='rates__rate'>
-                    <table class='rates__table'>
-                        <tbody>
-                            <tr class='rates__tr'>
-                                <td class='rates__name' title='Доллар США'><b>USD</b> - Доллар США<td>
-                                <td class='rates__sign' title='$'>$<td>
-                                <td class='rates__cost'>{{ $data->Valute->USD->Value }} руб.<td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class='rates__footer'>
-                    <p>Последнее обновление: {{ date ("d.m.Y, H:i:s.", filemtime($json_daily_file) + + 60*60*3) }} (МСК)</p>
-                </div>
-            </div>
-        </div>
     </div>
     @yield('page')
 
