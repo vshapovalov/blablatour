@@ -209,7 +209,7 @@
                 <div class="col-xs-12 col-sm-3 col-lg-2">
                     <h4>Контакты</h4>
                     <ul class="colorlib-footer-links">
-                        <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
+                        <li><a href="{{ $labels->firstWhere('code','=','contact_googlemaps')->label }}" target="blank">{{ $labels->firstWhere('code','=','contact_address')->label }}</a></li>
                         <li><a href="tel://{{ $labels->firstWhere('code','=','contact_phone')->label }}">{{ $labels->firstWhere('code','=','contact_phone_display')->label }}</a></li>
                         <li><a href="mailto:{{ $labels->firstWhere('code','=','contact_email')->label }}">{{ $labels->firstWhere('code','=','contact_email')->label }}</a></li>
                     </ul>
