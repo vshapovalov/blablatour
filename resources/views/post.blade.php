@@ -62,7 +62,7 @@
                             <div class="sidebar-heading">{{ $labels->firstWhere('code','=','categories')->label }}</div>
                             <ul class="category">
                                 @foreach($categories as $category)
-                                    <li><a href="{{ page_route('posts', ['slug'=>$category->slug])  }}"><i class="icon-check"></i> {{ $category->title }}</a></li>
+                                    <li><a href="{{ page_route('posts', ['slug'=>$category->slug])  }}">{{ $category->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

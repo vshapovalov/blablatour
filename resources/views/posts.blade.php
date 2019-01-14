@@ -40,7 +40,11 @@
                     <div class="wrap-division">
                         @foreach($posts as $post)
                             <article class="animate-box">
-                                <div class="blog-img" style="background-image: url({{ $post->image }});"></div>
+                            <a href="{{ page_route('post', ['slug'=>$post->slug]) }}" >
+                                <div class="blog-img" style="background-image: url({{ $post->image }});">
+                                    
+                                </div>
+                                </a>
                                 <div class="desc">
                                     <div class="meta">
                                         <p>
