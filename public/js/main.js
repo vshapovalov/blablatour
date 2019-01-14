@@ -253,6 +253,7 @@
 			animateOut: 'fadeOut',
 		   animateIn: 'fadeIn',
 		   autoplay: true,
+		   autoplayTimeout:8000,
 		   loop:true,
 		   margin:0,
 		   nav:true,
