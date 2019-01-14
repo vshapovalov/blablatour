@@ -50,7 +50,6 @@
                 <div class="col-md-8">
                     <div class="wrap-division">
                         <article class="animate-box">
-                            <div class="blog-img" style="background-image: url({{ $post->image }});"></div>
                             <div class="desc">
                                 <div class="meta">
                                     <p>

@@ -834,7 +834,10 @@ h1, h2, h3, h4, h5, h6, figure {
       list-style: none;
       margin-bottom: 10px; }
       .sidebar-wrap .category li a {
-        color: #000; }
+        color: #000; 
+        text-decoration: underline;}
+        .sidebar-wrap .category li a:hover {
+          color: #e6186e;}
   .sidebar-wrap .blog-entry-side .blog-post .desc h3 {
     font-size: 18px; }
 
@@ -1160,7 +1163,6 @@ article {
     padding: 3em;
     width: 95%;
     float: left;
-    margin-top: -7em;
     z-index: 1;
     background: #fff; }
     article .desc h2 a {
