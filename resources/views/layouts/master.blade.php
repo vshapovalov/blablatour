@@ -157,7 +157,7 @@
     <footer id="colorlib-footer" role="contentinfo">
         <div class="container">
             <div class="row row-pb-md">
-                <div class="col-md-2 colorlib-widget">
+                <div class="col-xs-12 col-sm-3 col-lg-2 colorlib-widget">
                     <h4>{{ $labels->firstWhere('code','=','brand_title')->label }}</h4>
                     <p>{{ $labels->firstWhere('code','=','brand_description')->label }}</p>
                     <p>
@@ -180,13 +180,14 @@
                     </div>
                     <script async src="https://www.jscache.com/wejs?wtype=rated&uniq=971&locationId=14768947&lang=en_US&display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
                 </div>
-                <div class="col-md-4 colorlib-widget">
+                <div class="col-xs-12 col-sm-4 col-lg-3 colorlib-widget">
                     <h4>Мы в Instagram</h4>
                     <p>
-                    <a href="https://instawidget.net/v/user/blablatour" id="link-4f66a903618f8c9887f9f091bb0041fa059fc9c5eb35aaa8cb1b3ac004373deb">@blablatour</a>
-                    <script src="https://instawidget.net/js/instawidget.js?u=4f66a903618f8c9887f9f091bb0041fa059fc9c5eb35aaa8cb1b3ac004373deb&width=300px"></script>
+                        <!-- InstaWidget -->
+                        <a href="https://instawidget.net/v/user/blablatour" id="link-ac417312470822d2bc5ef6021cdb9609544337bb821784e0980b1fb74c140e5e">@blablatour</a>
+                        <script src="https://instawidget.net/js/instawidget.js?u=ac417312470822d2bc5ef6021cdb9609544337bb821784e0980b1fb74c140e5e&width=250px"></script>
                 </div>
-                <div class="col-md-2 colorlib-widget">
+                <div class="col-xs-6 col-sm-3 col-lg-2 colorlib-widget">
                     <h4>Туры</h4>
                     <p>
                     <ul class="colorlib-footer-links">
@@ -196,7 +197,7 @@
                     </ul>
                     </p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-xs-6 col-sm-3 col-lg-2">
                     <h4>Блог</h4>
                     <ul class="colorlib-footer-links">
                         @foreach(\App\Post::take(3)->get() as $post)
@@ -205,7 +206,7 @@
                     </ul>
                 </div>
 
-                <div class="col-md-2 col-md-push-1">
+                <div class="col-xs-12 col-sm-3 col-lg-2">
                     <h4>Контакты</h4>
                     <ul class="colorlib-footer-links">
                         <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
