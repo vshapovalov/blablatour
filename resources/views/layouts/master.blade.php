@@ -211,7 +211,6 @@
                         <li>{{ $labels->firstWhere('code','=','contact_address')->label }}</li>
                         <li><a href="tel://{{ $labels->firstWhere('code','=','contact_phone')->label }}">{{ $labels->firstWhere('code','=','contact_phone_display')->label }}</a></li>
                         <li><a href="mailto:{{ $labels->firstWhere('code','=','contact_email')->label }}">{{ $labels->firstWhere('code','=','contact_email')->label }}</a></li>
-                        <li><a href="/">{{ $labels->firstWhere('code','=','site_title')->label }}</a></li>
                     </ul>
                 </div>
             </div>
