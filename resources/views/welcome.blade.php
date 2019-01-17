@@ -111,39 +111,7 @@
     </div>
 </div>
 
-<div id="colorlib-intro" class="intro-img" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 animate-box">
-                <div class="intro-desc">
-                    <div class="text-salebox">
-                        <div class="text-rights">
-                            <h3 class="title">{{ $labels->firstWhere('code','=','video_title')->label }}</h3>
-                            <p>{{ $labels->firstWhere('code','=','video_text')->label }}</p>
-                            @if ($labels->firstWhere('code','=','video_button_url'))
-                                <p>
-                                    <a href="{{ $labels->firstWhere('code','=','video_button_url')->label }}"
-                                      class="btn btn-primary btn-outline">{{ $labels->firstWhere('code','=','video_button_caption')->label }}</a>
-                                </p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 animate-box">
-                <div class="video-wrap">
-                    <div class="video colorlib-video" style="background-image: url({{ count( crud_image(crud_settings('site.video_bg'), true)) ? crud_image(crud_settings('site.video_bg'), true)[0] : 'images/img_bg_2.jpg' }}); position: relative">
-                        <a href="{{ crud_settings('site.video_url') }}" class="popup-vimeo"><i class="icon-video"></i></a>
-                        <div class="video-overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="colorlib-hotel">
+<div id="colorlib-hotel" class="colorlib-grey">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center colorlib-heading animate-box">
@@ -181,7 +149,7 @@
     </div>
 </div>
 
-<div id="colorlib-testimony" class="colorlib-grey">
+<div id="colorlib-testimony">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center animate-box">
