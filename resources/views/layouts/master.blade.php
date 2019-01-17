@@ -84,7 +84,7 @@
                     <div class="col-xs-2">
                         <div id="colorlib-logo">
                             <a href="/" title="Bla Bla Tour">
-                                <img src="/images/logo.png" alt="" style="width: 100px">
+                                <img src="/images/logo_small.png" alt="" style="width: 100px">
                             </a>
                         </div>
                     </div>
