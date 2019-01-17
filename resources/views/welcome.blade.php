@@ -22,7 +22,7 @@
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
                     <span class="icon">
-                        <i class="flaticon-boat"></i>
+                        <i class="flaticon-money"></i>
                     </span>
                     <h3>{{ $labels->firstWhere('code','=','achive_2_title')->label }}</h3>
                     <p>{{ $labels->firstWhere('code','=','achive_2_description')->label }}</p>
@@ -31,7 +31,7 @@
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
                     <span class="icon">
-                        <i class="flaticon-car"></i>
+                        <i class="flaticon-value"></i>
                     </span>
                     <h3>{{ $labels->firstWhere('code','=','achive_3_title')->label }}</h3>
                     <p>{{ $labels->firstWhere('code','=','achive_3_description')->label }}</p>
@@ -40,7 +40,7 @@
             <div class="col-md-3 animate-box text-center">
                 <div class="services">
                     <span class="icon">
-                        <i class="flaticon-postcard"></i>
+                        <i class="flaticon-negotiation"></i>
                     </span>
                     <h3>{{ $labels->firstWhere('code','=','achive_4_title')->label }}</h3>
                     <p>{{ $labels->firstWhere('code','=','achive_4_description')->label }}</p>
