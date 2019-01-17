@@ -41,7 +41,7 @@
     <!-- Date Picker -->
     <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
     <!-- Flaticons  -->
-    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css?2019011701">
 
     <!-- Theme style  -->
     <link rel="stylesheet" href="/css/style.css?201810072332">
